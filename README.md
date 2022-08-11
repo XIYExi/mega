@@ -1,46 +1,35 @@
-# Getting Started with Create React App
+# Mega
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+完全基于 styled-components + TypeScript + React Hook 的移动端组件库
 
-## Available Scripts
+<img src='https://s1.ax1x.com/2022/04/03/qHCPsA.png'/>
 
-In the project directory, you can run:
+## styled-components
 
-### `npm start`
+本项目中不在使用sass编写样式文件，而是使用styled-components包编写纯react组件。
+不适用样式文件会导致单个组件被拆分，在组件的包下与当前组件包同名的tsx文件为当前组件的主文件。其余均为子组件。
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
+项目在 ```src/styles```中定义了通用样式，采用json格式定义，并在```_config.tsx```文件中组装了部分主题样式。
+在styles包下```index.tsx```为暴露在外的入口文件。
 
-The page will reload if you make edits.\
-You will also see any lint errors in the console.
+### figma
 
-### `npm test`
+本项目的设计原型是淘宝5块钱买的‘merge’，设计并未完全采用merge，而是在其基础上进行了一定修改，并制作了部分动画。
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+设计图存放于 ```src/assets```中,提供 xd 和 figma 原型图 
 
-### `npm run build`
+### React Hook
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+项目采用 create-react-app 官方脚手架， 基于 React18 和 TypeScript 定义组件，组件中全程使用React Hook编写渲染和事件回调。
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+### storybook jest
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+开发框架选用 storybook， 目前已经继承但还未进行编写， 测试框架依旧选择jest
 
-### `npm run eject`
+### 开发思路
 
-**Note: this is a one-way operation. Once you `eject`, you can’t go back!**
+Love Letter UI React
 
-If you aren’t satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+Love Letter UI HTML
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you’re on your own.
-
-You don’t have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn’t feel obligated to use this feature. However we understand that this tool wouldn’t be useful if you couldn’t customize it when you are ready for it.
-
-## Learn More
-
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/).
+Love Letter UI Vue
