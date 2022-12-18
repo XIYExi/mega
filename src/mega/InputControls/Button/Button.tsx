@@ -62,6 +62,7 @@ const ButtonWrapper = styled.div`
 `
 
 export const buttonCtx = createContext<any|null>(null);
+
 const Button:FC<ButtonProps> = (props) => {
 
     const {color, primaryBar, type='primary', style} = props;
