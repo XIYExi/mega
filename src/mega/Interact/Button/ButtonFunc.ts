@@ -1,4 +1,4 @@
-import {ButtonConstant} from "./ButtonStyle";
+import {ButtonConstant, SvgAnimationIntensity, SvgAnimationModerate, SvgAnimationScarcely} from "./ButtonStyle";
 import {ButtonBaseProps, ButtonProProps} from "./ButtonPro";
 
 export const HandleCyberButtonVmin=(vmin:number)=>{
@@ -21,7 +21,10 @@ export const HandleButtonProFontColor = (color:string) => {
 
 export const HandleButtonProAutoWithAttr = (auto:ButtonBaseProps, props: ButtonProProps) => {
 
-    const attr = ['id', 'className', 'style', 'color', 'type', 'children', 'text', 'subText', 'vminHeight', 'vminWidth', 'fontSize', 'onClick','onFocus', 'onMouseEnter'];
+    const attr = ['id', 'className', 'style', 'color', 'type', 'children', 'text',
+        'subText', 'vminHeight', 'vminWidth', 'fontSize', 'onClick','onFocus', 'onMouseEnter',
+        'animationScale', 'svg'
+    ];
 
     attr.map((item:string,_)=>{
 
@@ -33,4 +36,18 @@ export const HandleButtonProAutoWithAttr = (auto:ButtonBaseProps, props: ButtonP
     })
     //console.log('auto success',auto)
     return auto;
+}
+
+/**
+ * 处理Svg Button中 svg 图标上下运动动画的剧烈程度
+ * @param scale
+ * @constructor
+ */
+export const HandleSvgButtonAnimationScale = (scale:string) => {
+    switch (scale) {
+        case 'scarcely': return SvgAnimationScarcely;
+        case 'moderate':return SvgAnimationModerate;
+        case 'intensity':return SvgAnimationIntensity;
+        default:return SvgAnimationModerate;
+    }
 }

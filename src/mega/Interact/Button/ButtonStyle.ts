@@ -1,12 +1,15 @@
 
 // 颜色
 import {keyframes} from "styled-components";
+import {SvgAnimationProps} from "./ButtonType";
+import exp from "constants";
+import {CSSProperties} from "react";
 
 export const ButtonBaseColor = {
     cyber: '#ff013c',
     cyberSecond: '#02ffd3',
     cyberFont: `#f0e900`,
-
+    svgFont: '#fff',
 };
 
 // 字体
@@ -17,8 +20,17 @@ export const ButtonBaseSize = {
     cyberLetterSpacing: `0.2vmin`,
 }
 
+
 // 规格
 export const ButtonConstant:{[key:string]:any} = {
+    buttonBaseOverflow: 'hidden',
+    svgBorderRadius: '16px',
+    svgInnerPadding: '0.7em 1em',
+    svgInnerPaddingLeft: '0.9em',
+    svgFontMove: '100em',
+    svgMove:'translateX(1.2em) rotate(45deg) scale(1.1)',
+    svgAnimationScaleModerate: '1em',
+    svgAnimationScaleIntensity: '1.5em',
     polygon: `polygon(
           0 0,
           100% 0,
@@ -57,7 +69,6 @@ export const ButtonConstant:{[key:string]:any} = {
         vmin4: '-47%',
         vmin5: '-37%'
     }
-
 }
 
 
@@ -261,5 +272,36 @@ export const CyberAnimationSmall = keyframes`
   }
   100% {
     clip-path: ${CyberAnimationArr[1][24]};
+  }
+`
+
+
+export const SvgAnimationScarcely = keyframes`
+  from {
+    transform: translateY(0.1em);
+  }
+
+  to {
+    transform: translateY(-0.1em);
+  }
+`
+
+export const SvgAnimationModerate = keyframes`
+  from {
+    transform: translateY(0.3em);
+  }
+
+  to {
+    transform: translateY(-0.3em);
+  }
+`
+
+export const SvgAnimationIntensity = keyframes`
+  from {
+    transform: translateY(0.5em);
+  }
+
+  to {
+    transform: translateY(-0.5em);
   }
 `

@@ -1,4 +1,5 @@
-import {ButtonBaseType} from "./ButtonType";
+import {ButtonAnimationScaleType, ButtonBaseType} from "./ButtonType";
+import React from "react";
 
 export const AutoJson = {
     id: '',
@@ -11,6 +12,8 @@ export const AutoJson = {
     type: 'Cyber' as ButtonBaseType,
     children: null,
     text: 'Button',
+    animationScale:'moderate' as ButtonAnimationScaleType,
+    svg: null,
     subText: '',
     vminWidth: 60,//建议保持为fontSize的12倍
     vminHeight: 15,//建议保持为fontSize的3倍

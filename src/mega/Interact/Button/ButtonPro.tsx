@@ -1,9 +1,10 @@
 import React, {createContext, CSSProperties, FC, ReactNode, useEffect, useMemo, useState} from 'react';
-import {ButtonBaseType} from './ButtonType';
+import {ButtonAnimationScaleType, ButtonBaseType} from './ButtonType';
 import styled from "styled-components";
 import ButtonCyber from "./Button-Cyber";
 import {HandleButtonProAutoWithAttr} from "./ButtonFunc";
 import {AutoJson} from "./Auto";
+import ButtonSvg from "./Button-Svg";
 
 export interface ButtonBaseProps{
     /**
@@ -62,6 +63,16 @@ export interface ButtonBaseProps{
     fontSize?:number;
 
     /**
+     * 部分Button中使用的Svg，非提供组件配置不生效
+     */
+    svg?:ReactNode;
+
+    /**
+     * 动画表现程度
+     */
+    animationScale?: ButtonAnimationScaleType;
+
+    /**
      * 点击回调
      */
     onClick?:()=>void;
@@ -102,6 +113,9 @@ interface ButtonBaseCtx{
 
     subText?:string;
 
+    animationScale?:string;
+
+    svg?:ReactNode;
 }
 
 export const buttonBaseCtx = createContext<ButtonBaseCtx | null>(null);
@@ -113,6 +127,7 @@ const BaseButtonThemeWrapper = styled.div`
   overflow: hidden;
 `
 
+
 const ButtonPro:FC<ButtonProProps> = (props) => {
 
     const {
@@ -120,16 +135,18 @@ const ButtonPro:FC<ButtonProProps> = (props) => {
         id,
         className,
         style,
-        color = '#fff',
-        type = 'Cyber',
-        text = 'Button',
+        color,
+        type,
+        text,
         subText,
-        vminHeight = 60,
-        vminWidth = 15,
-        fontSize = 5,
+        vminHeight,
+        vminWidth,
+        fontSize,
         onClick,
         onFocus,
         onMouseEnter,
+        animationScale,
+        svg,
     } = props;
 
     const [autoTable, setAutoTable] = useState<ButtonBaseProps>(auto ? auto : AutoJson);
@@ -157,6 +174,7 @@ const ButtonPro:FC<ButtonProProps> = (props) => {
                     vminWidth: autoTable.vminWidth,
                     vminHeight: autoTable.vminHeight,
                     fontSize: autoTable.fontSize? autoTable.fontSize : 5,
+                    svg: autoTable.svg ? autoTable.svg : null,
                 });
             }
         }
@@ -177,7 +195,7 @@ const ButtonPro:FC<ButtonProProps> = (props) => {
         const tmp = (type === undefined) ? 'Cyber' : type;
         switch (tmp){
             case 'Cyber':return (<ButtonCyber></ButtonCyber>);
-
+            case 'Svg':return (<ButtonSvg></ButtonSvg>)
             default: return(<React.Fragment></React.Fragment>);
         }
     }
@@ -191,19 +209,12 @@ const ButtonPro:FC<ButtonProProps> = (props) => {
                 style={style}
             >
                 <buttonBaseCtx.Provider value={buttonBaseStyle}>
-                    {renderBtn(type)}
+                    {renderBtn(autoTable.type)}
                 </buttonBaseCtx.Provider>
             </BaseButtonThemeWrapper>
         </div>
     )
 }
 
-ButtonPro.defaultProps = {
-    color:'#fff',
-    type:'Cyber',
-    vminHeight:15,
-    vminWidth:60,
-    fontSize:5
-}
 
 export default ButtonPro;

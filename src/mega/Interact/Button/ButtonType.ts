@@ -1,3 +1,6 @@
+import {Keyframes} from "styled-components";
+import exp from "constants";
+
 export type ButtonColorType = 'gray' | 'dark' | 'light' | 'primary';
 
 export type ButtonPrimaryBarType = 'primary' // 默认长条
@@ -7,19 +10,36 @@ export type ButtonPrimaryBarType = 'primary' // 默认长条
 
 export type ButtonType = 'mini' | 'primary' | 'rectangle' | 'circle';
 
-export type ButtonBaseType = 'Cyber' | 'xxx';
+export type ButtonBaseType = 'Cyber' | 'Svg';
 
-/**
- * Cyber Button
- * */
-export interface CyberButtonProps{
-    custom:CyberButtonWrapperCustom,
-}
-export interface CyberButtonWrapperCustom{
+export type ButtonAnimationScaleType = 'scarcely' | 'moderate' | 'intensity';
+
+
+interface BaseButtonWrapperCustom{
     color: string,
     vminFontSize: number,
     vminWidth: number,
     vminHeight: number,
     fontWeight: number,
     animatorType:number,
+}
+/**
+ * Cyber Button
+ * */
+export interface CyberButtonProps{
+    custom:CyberButtonWrapperCustom,
+}
+export interface CyberButtonWrapperCustom extends BaseButtonWrapperCustom{
+
+}
+
+export interface SvgButtonProps{
+    custom: SvgButtonWrapperCustom
+}
+export interface SvgButtonWrapperCustom extends Omit<BaseButtonWrapperCustom, 'animatorType'>{
+    animationScale: Keyframes;
+}
+
+export interface SvgAnimationProps{
+
 }
