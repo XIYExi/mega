@@ -1,7 +1,6 @@
 import React, {FC, useContext} from "react";
 import styled from "styled-components";
 import {ButtonBaseColor, ButtonBaseSize, ButtonConstant, CyberAnimationBig, CyberAnimationSmall} from "./ButtonStyle";
-import {neutral} from "../../../styles";
 import {buttonBaseCtx} from "./ButtonPro";
 import {CyberButtonProps} from "./ButtonType";
 import {HandleCyberButtonVmin} from "./ButtonFunc";
@@ -21,7 +20,6 @@ const CyberButtonGlitch = styled.span<CyberButtonProps>`
     background-color:${ButtonBaseColor.cyber};
     position: absolute;
     z-index: -1;
-    
   }
 `
 
@@ -35,8 +33,6 @@ const CyberButtonTag = styled.i<CyberButtonProps>`
 `
 
 const CyberButtonWrapper = styled.button<CyberButtonProps>`
-
-  
   width: ${props=>props.custom.vminWidth}vmin;
   height: ${props=>props.custom.vminHeight}vmin;
   background: transparent;
@@ -77,7 +73,6 @@ const ButtonCyber:FC = (props) => {
 
     const ctx = useContext(buttonBaseCtx);
 
-
     const wrapperProps = {
         color: ctx?.fontColor ? ctx.fontColor : ButtonBaseColor.cyberFont,
         vminFontSize: ctx?.fontSize? ctx.fontSize : ButtonBaseSize.cyberVminSize,
@@ -87,9 +82,8 @@ const ButtonCyber:FC = (props) => {
         animatorType: ctx?.fontSize? (ctx.fontSize === 2 || ctx.fontSize===3) ? 1 : 0 : 1,
     }
 
-    //console.log('wrapper',wrapperProps)
-
-
+    //console.log('wrapper',ctx)
+    
     return (
         <React.Fragment>
             <CyberButtonWrapper custom={wrapperProps}>

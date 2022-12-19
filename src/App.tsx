@@ -31,16 +31,22 @@ const TestDiv = styled.div`
   justify-content: ${ButtonConstant.itemAlign};
   align-items: ${ButtonConstant.itemAlign};
   overflow: hidden;
-  min-height: 100vh;
   background: linear-gradient(70deg, #fff700 50%, #f0e900 50%);
 `
 
 
 function App() {
   return (
-    <TestDiv className="App" style={{zIndex:'-100'}}>
-        <ButtonPro auto={json}/>
-    </TestDiv>
+      <div>
+
+        <TestDiv className="App">
+            <ButtonPro auto={json}/>
+            <ButtonPro auto={json}/>
+            <ButtonPro auto={json}/>
+        </TestDiv>
+
+
+      </div>
   );
 }
 

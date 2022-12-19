@@ -1,6 +1,5 @@
 import {ButtonBaseType} from "./ButtonType";
 
-
 export const AutoJson = {
     id: '',
     className: '',

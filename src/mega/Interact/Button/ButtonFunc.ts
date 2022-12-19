@@ -1,6 +1,5 @@
-import {ButtonBaseColor, ButtonConstant} from "./ButtonStyle";
+import {ButtonConstant} from "./ButtonStyle";
 import {ButtonBaseProps, ButtonProProps} from "./ButtonPro";
-import {AutoJson} from "./Auto";
 
 export const HandleCyberButtonVmin=(vmin:number)=>{
     let index:string = `vmin${vmin}`
@@ -25,9 +24,11 @@ export const HandleButtonProAutoWithAttr = (auto:ButtonBaseProps, props: ButtonP
     const attr = ['id', 'className', 'style', 'color', 'type', 'children', 'text', 'subText', 'vminHeight', 'vminWidth', 'fontSize', 'onClick','onFocus', 'onMouseEnter'];
 
     attr.map((item:string,_)=>{
-        if(auto[`${item}` as keyof ButtonBaseProps] && props[`${item}` as keyof ButtonProProps]){
+
+        if(props[`${item}` as keyof ButtonProProps]){
             // @ts-ignore
             auto[`${item}` as keyof ButtonBaseProps] = props[`${item}` as keyof ButtonProProps];
+            //console.log(auto[`${item}` as keyof ButtonBaseProps] , props[`${item}` as keyof ButtonProProps])
         }
     })
     //console.log('auto success',auto)

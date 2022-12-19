@@ -9,7 +9,9 @@ export type ButtonType = 'mini' | 'primary' | 'rectangle' | 'circle';
 
 export type ButtonBaseType = 'Cyber' | 'xxx';
 
-
+/**
+ * Cyber Button
+ * */
 export interface CyberButtonProps{
     custom:CyberButtonWrapperCustom,
 }
