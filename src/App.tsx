@@ -5,6 +5,9 @@ import styled from "styled-components";
 import {ButtonConstant} from "./mega/Interact/Button/ButtonStyle";
 import ButtonSvg from "./mega/Interact/Button/Button-Svg";
 import ButtonCyber from "./mega/Interact/Button/Button-Cyber";
+import TypeSettingPro from "./mega/design/TypeSetting/TypeSettingPro";
+import TypeSettingDislocation from "./mega/design/TypeSetting/TypeSetting-Dislocation";
+import TypeSettingDesigner from "./mega/design/TypeSetting/tool/TypeSettingDesigner";
 
 
 const json = {
@@ -33,7 +36,10 @@ const TestDiv = styled.div`
   justify-content: ${ButtonConstant.itemAlign};
   align-items: ${ButtonConstant.itemAlign};
   overflow: hidden;
-  //background: linear-gradient(70deg, #fff700 50%, #f0e900 50%);
+  background: linear-gradient(70deg, #fff700 50%, #f0e900 50%);
+  min-height: 100vmin;
+  flex-wrap: wrap;
+  flex-direction: row;
 `
 
 const SvgIcon = () => (
@@ -53,10 +59,8 @@ function App() {
       <div>
 
         <TestDiv className="App">
-            <ButtonPro auto={json} svg={<SvgIcon/>}/>
+            <TypeSettingDesigner />
         </TestDiv>
-
-
       </div>
   );
 }

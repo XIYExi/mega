@@ -52,3 +52,36 @@ Cyber_Btn.args = {
     auto: jsonCyber,
     subText:'click'
 }
+
+
+export const Svg_Btn = Template.bind({});
+const SvgIcon = () => (
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="24" height="24">
+        <path fill="none" d="M0 0h24v24H0z"></path>
+        <path fill="currentColor"
+              d="M1.946 9.315c-.522-.174-.527-.455.01-.634l19.087-6.362c.529-.176.832.12.684.638l-5.454 19.086c-.15.529-.455.547-.679.045L12 14l6-8-8 6-8.054-2.685z"></path>
+    </svg>
+)
+const jsonSvg = {
+    id: 'svg_btn',
+    className: 'button_common',
+    style: {
+        margin: 0,
+        padding: 0
+    },
+    color: '#fff',
+    type: 'Svg' as ButtonBaseType,
+    children: null,
+    text: 'Svg Button',
+    subText: 'svg',
+    vminWidth: 60,//建议保持为fontSize的12倍
+    vminHeight: 15,//建议保持为fontSize的3倍
+    fontSize: 5,//value in [2,3,4,5]
+    svg: <SvgIcon/>,
+    onClick: () => {console.log('你按下了一个Button')},
+    onFocus: () => {console.log('Focus')},
+    onMouseEnter: () => {console.log('孩子不懂事，移着玩的')},
+}
+Svg_Btn.args = {
+    auto: jsonSvg
+}

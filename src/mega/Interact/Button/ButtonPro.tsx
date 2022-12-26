@@ -163,7 +163,7 @@ const ButtonPro:FC<ButtonProProps> = (props) => {
                     setAutoTable(HandleButtonProAutoWithAttr(AutoJson, props));
                 else
                     setAutoTable(auto as ButtonBaseProps);
-                console.log('auto',autoTable)
+                console.log(props)
                 /**
                  * 根据 buttonStyleProps 组装父组件 Css 属性
                  * */
