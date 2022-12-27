@@ -1,13 +1,9 @@
 import React from 'react';
-import ButtonPro from "./mega/Interact/Button/ButtonPro";
 import {ButtonBaseType} from "./mega/Interact/Button/ButtonType";
 import styled from "styled-components";
 import {ButtonConstant} from "./mega/Interact/Button/ButtonStyle";
-import ButtonSvg from "./mega/Interact/Button/Button-Svg";
-import ButtonCyber from "./mega/Interact/Button/Button-Cyber";
-import TypeSettingPro from "./mega/design/TypeSetting/TypeSettingPro";
-import TypeSettingDislocation from "./mega/design/TypeSetting/TypeSetting-Dislocation";
 import TypeSettingDesigner from "./mega/design/TypeSetting/tool/TypeSettingDesigner";
+import TextAreaSimplicity from "./mega/Interact/TextArea/TextArea-Simplicity";
 
 
 const json = {
@@ -31,15 +27,12 @@ const json = {
 }
 
 const TestDiv = styled.div`
-  box-sizing: border-box;
-  display: flex;
-  justify-content: ${ButtonConstant.itemAlign};
-  align-items: ${ButtonConstant.itemAlign};
   overflow: hidden;
-  background: linear-gradient(70deg, #fff700 50%, #f0e900 50%);
+  background: #f8f8d9;
   min-height: 100vmin;
   flex-wrap: wrap;
   flex-direction: row;
+  min-width: 100vmin;
 `
 
 const SvgIcon = () => (
@@ -51,15 +44,20 @@ const SvgIcon = () => (
 )
 
 
+
+
+
 function App() {
-
-
 
   return (
       <div>
 
         <TestDiv className="App">
             <TypeSettingDesigner />
+   {/*         <div style={{width:'90%'}}>
+                <TextAreaSimplicity />
+            </div>*/}
+
         </TestDiv>
       </div>
   );

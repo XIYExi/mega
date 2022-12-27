@@ -1,7 +1,7 @@
 import {ButtonAnimationScaleType, ButtonBaseType} from "./ButtonType";
 import React from "react";
 
-export const AutoJson = {
+export let AutoJson = {
     id: '',
     className: '',
     style: {
