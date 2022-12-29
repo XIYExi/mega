@@ -1,4 +1,4 @@
-import React, {FC, useState} from "react";
+import React, {FC, useCallback, useState} from "react";
 import styled from "styled-components";
 import TypeSettingDislocation from "../TypeSetting-Dislocation";
 import {TypeSettingDislocationTextProps} from "../TypeSettingType";
@@ -7,9 +7,10 @@ import {
     DesignerBoxWrapper,
     ShowText,
     TypeDesignerAutoControl,
-    TypeDesignerAutoTextArea
+    TypeDesignerAutoTextArea, TypeDesignerCheckBox
 } from "./TypeSettingDesignerBox";
 import TextAreaPro from "../../../Interact/TextArea/TextAreaPro";
+import CheckBoxPro from "../../../Interact/CheckBox/CheckBoxPro";
 
 
 export interface TypeToolsProps{
@@ -22,7 +23,7 @@ export interface TypeToolsProps{
 const ToolContainer = styled.div`
   overflow: hidden;
   min-width: 100%;
-  background-color: transparent;
+  background-color: #f6f4f4;
 `
 
 const ShowWrapper = styled.div`
@@ -34,11 +35,9 @@ const ShowWrapper = styled.div`
   display: flex;
   height: 95vmin;
   margin: 15px;
-  border: 1px solid #333333;
+  border: 1px solid #fff;
   border-radius: 8px;
-  box-shadow: inset 14px 14px 22px #cfd6dc,
-  inset -14px -14px 22px #fdffff;
-  background: transparent!important;
+  background: #fff;
 `
 
 const ToolWrapper = styled.div`
@@ -58,6 +57,11 @@ const ArrControls = styled.div`
   padding-bottom: 10px;
 `
 
+const CheckBoxProWithAttr = styled(CheckBoxPro)`
+  margin-top: 10px;
+  margin-left: 24px;
+  margin-bottom: 0px;
+`
 
 const TypeSettingDesigner:FC = () => {
 
@@ -65,10 +69,16 @@ const TypeSettingDesigner:FC = () => {
     const [valueArr, setValueArr] = useState<TypeSettingDislocationTextProps[]>([]);
     const [inputArr, setInputArr] = useState<any[]>();
     const [fontFamily, setFontFamily] = useState<string>('');
+    const [align, setAlign] = useState<string>('vertical')
+    const [canReset, setCanReset] = useState<boolean>(false);
 
-    const generateControls = () => {
+    const generateControls = useCallback(() => {
         if (inputText === '')
             return;
+
+        //当canReset设置为true，可以重置
+        setCanReset(true);
+
         const arr:string[] = inputText.split('');
         const res:any = [];
         const values:TypeSettingDislocationTextProps[] = new Array(arr.length).fill({});
@@ -95,7 +105,7 @@ const TypeSettingDesigner:FC = () => {
             );
         })
         setInputArr(res);
-    }
+    },[inputText]);
 
     const changeAlignValue = (text:string, index:number) => {
         //console.log(text, index);
@@ -140,6 +150,23 @@ const TypeSettingDesigner:FC = () => {
         console.log(valueArr)
     }
 
+    const reset = () => {
+        // 重置Reset，可以生成
+        setCanReset(false);
+        setInputText('');
+        setValueArr([]);
+        setInputArr([]);
+        setFontFamily('');
+    }
+
+    const handleAlignCheckBox = useCallback((label:string, checked:boolean)=>{
+        //console.log('label', label, 'checked', checked);
+        if (checked)
+            setAlign('horizontal');
+        else
+            setAlign('vertical');
+    }, []);
+
     // @ts-ignore
     return (
         <React.Fragment>
@@ -149,19 +176,33 @@ const TypeSettingDesigner:FC = () => {
                 <ShowWrapper>
                     {
                         (valueArr.length > 0)
-                        && <TypeSettingDislocation fontFamily={fontFamily} key='dislocation' show='horizontal' configure={valueArr} text={inputText}/>
+                        && <TypeSettingDislocation
+                            fontFamily={fontFamily}
+                            key='dislocation'
+                            show={align as 'vertical' | 'horizontal'}
+                            configure={valueArr}
+                            text={inputText}
+                        />
                     }
                 </ShowWrapper>
 
                 <ToolWrapper>
                     <div>
-                        <input type='text' value={inputText} onChange={e => setInputText(e.target.value)}/>
-                        <button onClick={generateControls}>Generate</button>
+                        <input disabled={canReset} type='text' value={inputText} onChange={e => setInputText(e.target.value)}/>
+                        {
+                            !canReset
+                                ? <button onClick={generateControls}>Generate</button>
+                                : <button onClick={reset}>Reset</button>
+                        }
                         <button onClick={show}>show details</button>
                     </div>
 
                     <DesignerBoxWrapper>
                         <ShowText style={{paddingBottom:'10px'}}>整体定制</ShowText>
+
+                        <CheckBoxProWithAttr auto={TypeDesignerCheckBox}
+                                     onChange={(label, checked) => handleAlignCheckBox(label, checked)}/>
+
                         <TextAreaPro auto={TypeDesignerAutoTextArea} onChange={e => handleFontFamilyValue(e.target.value)}/>
                     </DesignerBoxWrapper>
 

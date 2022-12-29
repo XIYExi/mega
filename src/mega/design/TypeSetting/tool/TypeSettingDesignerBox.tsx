@@ -2,6 +2,7 @@ import React, {FC} from "react";
 import styled from "styled-components";
 import {InputType} from "../../../Interact/Input/InputTypes";
 import {TextAreaType} from "../../../Interact/TextArea/TextAreaType";
+import {CheckBoxType} from "../../../Interact/CheckBox/CheckBoxType";
 
 
 export const TypeDesignerAutoControl = {
@@ -26,6 +27,18 @@ export const TypeDesignerAutoTextArea = {
     width: '450px',
     height: '80px',
     text: 'font-family'
+}
+
+export const TypeDesignerCheckBox = {
+    type: 'Simplicity' as CheckBoxType,
+    id: '_id',
+    className: 'checkBox_Wrapper__Class',
+    style: {
+        margin: '0',
+        padding: '0'
+    },
+    label: '垂直排列',
+    defaultChecked: false,
 }
 
 
