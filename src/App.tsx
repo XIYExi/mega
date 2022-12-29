@@ -4,35 +4,21 @@ import styled from "styled-components";
 import {ButtonConstant} from "./mega/Interact/Button/ButtonStyle";
 import TypeSettingDesigner from "./mega/design/TypeSetting/tool/TypeSettingDesigner";
 import TextAreaSimplicity from "./mega/Interact/TextArea/TextArea-Simplicity";
+import CheckBoxSimplicity from "./mega/Interact/CheckBox/CheckBox-Simplicity";
+import {CheckBoxType} from "./mega/Interact/CheckBox/CheckBoxType";
+import CheckBoxPro from "./mega/Interact/CheckBox/CheckBoxPro";
 
-
-const json = {
-    id: 'cyber_btn',
-    className: 'button_common',
-    style: {
-        margin: 0,
-        padding: 0
-    },
-    color: '#42e5f6',
-    type: 'Svg' as ButtonBaseType,
-    children: null,
-    text: '我敲，Button',
-    subText: 'click',
-    vminWidth: 3,//建议保持为fontSize的12倍
-    vminHeight: 3,//建议保持为fontSize的3倍
-    fontSize: 3,//value in [2,3,4,5]
-    onClick: () => {console.log('你按下了一个Button')},
-    onFocus: () => {console.log('Focus')},
-    onMouseEnter: () => {console.log('孩子不懂事，移着玩的')},
-}
 
 const TestDiv = styled.div`
   overflow: hidden;
   background: #f8f8d9;
-  min-height: 100vmin;
+  
   flex-wrap: wrap;
   flex-direction: row;
   min-width: 100vmin;
+  display: flex;
+  align-items: center;
+  justify-content: center;
 `
 
 const SvgIcon = () => (
@@ -44,19 +30,30 @@ const SvgIcon = () => (
 )
 
 
+const checkBoxJson = {
+    type: 'Simplicity' as CheckBoxType,
+    id: '_id',
+    className: 'checkBox_Wrapper__Class',
+    style: {
+        margin: '0',
+        padding: '0'
+    },
+    label: '垂直排列',
+    defaultChecked: false,
+}
 
 
 
 function App() {
+
+
 
   return (
       <div>
 
         <TestDiv className="App">
             <TypeSettingDesigner />
-   {/*         <div style={{width:'90%'}}>
-                <TextAreaSimplicity />
-            </div>*/}
+            {/*<CheckBoxPro auto={checkBoxJson}/>*/}
 
         </TestDiv>
       </div>
