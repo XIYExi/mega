@@ -2,16 +2,17 @@ import React, {FC, useCallback, useContext, useRef, useState} from "react";
 import styled from "styled-components";
 import {checkCtx} from "./CheckBoxPro";
 import {CheckBoxChildProps} from "./CheckBoxType";
+import {CheckBoxSimplicityConstant} from "./CheckBoxStyle";
 
 const CheckBoxSimplicityMark = styled.div`
   position: relative;
-  top: 0;
-  left: 0;
-  height: 1.3em;
-  width: 1.3em;
-  background: #606062;
-  border-radius: 7px;
-  box-shadow: 0px 0px 1px rgba(0, 0, 0, 0.30), 0px 1px 1px rgba(0,5);
+  top: ${CheckBoxSimplicityConstant.top};
+  left: ${CheckBoxSimplicityConstant.left};
+  height: ${CheckBoxSimplicityConstant.height};
+  width: ${CheckBoxSimplicityConstant.width};
+  background: ${CheckBoxSimplicityConstant.background};
+  border-radius: ${CheckBoxSimplicityConstant.borderRadius};
+  box-shadow: ${CheckBoxSimplicityConstant.boxShadow};
   
   &:after{
     content: "";
@@ -24,11 +25,11 @@ const CheckBoxSimplicityInput = styled.input`
   position: absolute;
   opacity: 0;
   cursor: pointer;
-  height: 0;
-  width: 0;
+  height: ${CheckBoxSimplicityConstant.inputHeight};
+  width: ${CheckBoxSimplicityConstant.inputWidth};
   
   &:checked ~ ${CheckBoxSimplicityMark}{
-    background-image: linear-gradient(#255CD2,#1D52C1);
+    background-image: ${CheckBoxSimplicityConstant.markBackground};
   }
   
   &:checked ~ ${CheckBoxSimplicityMark}:after{
@@ -40,7 +41,7 @@ const CheckBoxSimplicityWrapper = styled.label`
   display: block;
   position: relative;
   cursor: pointer;
-  font-size: 20px;
+  font-size: ${CheckBoxSimplicityConstant.fontSize};
   user-select: none;
   
   & ${CheckBoxSimplicityMark}:after{
@@ -50,7 +51,7 @@ const CheckBoxSimplicityWrapper = styled.label`
     height: 0.6em;
     border: solid white;
     border-width: 0 0.15em 0.15em 0;
-    transform: rotate(45deg);
+    transform: ${CheckBoxSimplicityConstant.iconTransform};
   }
 `
 

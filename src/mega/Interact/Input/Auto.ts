@@ -12,5 +12,6 @@ export let AutoJson = {
     background: 'transparent',
     mimetic: true,
     text: 'input',
-
+    height: '25px',
+    width: '250px',
 }
