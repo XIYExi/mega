@@ -1,15 +1,6 @@
 import React from 'react';
-import {ButtonBaseType} from "./mega/Interact/Button/ButtonType";
 import styled from "styled-components";
-import {ButtonConstant} from "./mega/Interact/Button/ButtonStyle";
-import TypeSettingDesigner from "./mega/design/TypeSetting/tool/TypeSettingDesigner";
-import TextAreaSimplicity from "./mega/Interact/TextArea/model/TextArea-Simplicity";
-import CheckBoxSimplicity from "./mega/Interact/CheckBox/model/CheckBox-Simplicity";
-import {CheckBoxType} from "./mega/Interact/CheckBox/CheckBoxType";
-import CheckBoxPro from "./mega/Interact/CheckBox/CheckBoxPro";
-import ButtonHover from "./mega/Interact/Button/model/Button-Hover";
-import ButtonSocial from "./mega/Interact/Button/model/Button-Social";
-
+import ButtonText from "./mega/Interact/Button/model/Button-Text";
 
 const TestDiv = styled.div`
   overflow: hidden;
@@ -32,19 +23,6 @@ const SvgIcon = () => (
 )
 
 
-const checkBoxJson = {
-    type: 'Simplicity' as CheckBoxType,
-    id: '_id',
-    className: 'checkBox_Wrapper__Class',
-    style: {
-        margin: '0',
-        padding: '0'
-    },
-    label: '垂直排列',
-    defaultChecked: false,
-}
-
-
 
 function App() {
 
@@ -54,9 +32,8 @@ function App() {
       <div>
 
         <TestDiv className="App">
-            {/*<TypeSettingDesigner />*/}
-            {/*<CheckBoxPro auto={checkBoxJson}/>*/}
-            <ButtonSocial />
+
+            <ButtonText />
 
         </TestDiv>
       </div>

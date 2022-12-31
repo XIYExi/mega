@@ -38,6 +38,7 @@ export const HandleButtonProAutoWithAttr = (auto:ButtonBaseProps, props: ButtonP
     return auto;
 }
 
+
 /**
  * 处理Svg Button中 svg 图标上下运动动画的剧烈程度
  * @param scale
@@ -51,6 +52,7 @@ export const HandleSvgButtonAnimationScale = (scale:string) => {
         default:return SvgAnimationModerate;
     }
 }
+
 
 /**
  * 处理带后缀的数字
@@ -86,6 +88,7 @@ export const HandleHoverSize = (param:string):string => {
         default:return '11rem';
     }
 }
+
 
 export const SplicingKeyWords = (keywords:string, head:string) => {
     const newKeywords = keywords.charAt(0).toUpperCase() + keywords.slice(1);
