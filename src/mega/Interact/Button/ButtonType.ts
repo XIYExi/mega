@@ -10,7 +10,9 @@ export type ButtonPrimaryBarType = 'primary' // 默认长条
 
 export type ButtonType = 'mini' | 'primary' | 'rectangle' | 'circle';
 
-export type ButtonBaseType = 'Cyber' | 'Svg';
+export type ButtonBaseType = 'Cyber' | 'Svg' | 'Hover' | 'Social';
+
+export type ButtonProSizeType = 'tiny' | 'small' | 'medium' | 'large' | 'huge';
 
 export type ButtonAnimationScaleType = 'scarcely' | 'moderate' | 'intensity';
 
@@ -50,10 +52,23 @@ export interface HoverButtonProps{
 
 }
 
-export type ButtonProSizeType = 'tiny' | 'small' | 'medium' | 'large' | 'huge';
-
 export interface ButtonChildProps{
     onClick?:(e:any)=>void;
     onFocus?:(e:any)=>void;
     onMouseEnter?:(e:any)=>void;
 }
+
+export interface ButtonSocialProps{
+    param: SocialValue,
+    color: string,
+}
+interface SocialValue{
+    wrapperWidth: string,
+    wrapperHeight: string,
+    iconHeight: string,
+    iconWidth: string,
+    svgWidth: string,
+    svgHeight: string,
+    textMarginLeft:string,
+}
+

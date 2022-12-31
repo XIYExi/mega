@@ -1,7 +1,7 @@
 import React, {FC, useCallback, useContext, useState} from "react";
 import styled from "styled-components";
-import {TextAreaChildProps, TextAreaSimplicityWrapperProps} from "./TextAreaType";
-import {textAreaCtx} from "./TextAreaPro";
+import {TextAreaChildProps, TextAreaSimplicityWrapperProps} from "../TextAreaType";
+import {textAreaCtx} from "../TextAreaPro";
 
 
 const TextArea = styled.textarea<TextAreaSimplicityWrapperProps>`

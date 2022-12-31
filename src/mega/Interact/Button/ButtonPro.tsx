@@ -1,11 +1,12 @@
 import React, {createContext, CSSProperties, FC, ReactNode, useEffect, useMemo, useState} from 'react';
 import {ButtonAnimationScaleType, ButtonBaseType, ButtonProSizeType} from './ButtonType';
 import styled from "styled-components";
-import ButtonCyber from "./Button-Cyber";
+import ButtonCyber from "./model/Button-Cyber";
 import {HandleButtonProAutoWithAttr} from "./ButtonFunc";
 import {AutoJson} from "./Auto";
-import ButtonSvg from "./Button-Svg";
-import ButtonHover from "./Button-Hover";
+import ButtonSvg from "./model/Button-Svg";
+import ButtonHover from "./model/Button-Hover";
+import ButtonSocial from "./model/Button-Social";
 
 export interface ButtonBaseProps{
     /**
@@ -27,6 +28,11 @@ export interface ButtonBaseProps{
      * 个性化设置，字体颜色，将会覆盖统一主题
      */
     color?: string;
+
+    /**
+     * button背景颜色, 部分按钮不提供此接口
+     */
+    background?: string;
 
     /**
      * 按钮样式类型
@@ -124,6 +130,8 @@ interface ButtonBaseCtx{
     svg?:ReactNode;
 
     size?:string;
+
+    background?:string;
 }
 
 export const buttonBaseCtx = createContext<ButtonBaseCtx | null>(null);
@@ -147,6 +155,7 @@ const ButtonPro:FC<ButtonProProps> = (props) => {
         type,
         text,
         subText,
+        background,
         vminHeight,
         vminWidth,
         fontSize,
@@ -185,6 +194,7 @@ const ButtonPro:FC<ButtonProProps> = (props) => {
                     fontSize: autoTable.fontSize? autoTable.fontSize : 5,
                     svg: autoTable.svg ? autoTable.svg : null,
                     size: autoTable.size ? autoTable.size : 'medium',
+                    background: autoTable.background ? autoTable.background : 'transparent'
                 });
             }
         }
@@ -210,6 +220,8 @@ const ButtonPro:FC<ButtonProProps> = (props) => {
                 return (<ButtonSvg onMouseEnter={onMouseEnter} onFocus={onFocus} onClick={onClick}/>)
             case 'Hover':
                 return (<ButtonHover onMouseEnter={onMouseEnter} onFocus={onFocus} onClick={onClick}/>)
+            case 'Social':
+                return (<ButtonSocial onMouseEnter={onMouseEnter} onFocus={onFocus} onClick={onClick}/> )
             default:
                 return(<div style={{color:'red'}}>Error: render in Button</div>);
         }

@@ -21,9 +21,9 @@ export const HandleButtonProFontColor = (color:string) => {
 
 export const HandleButtonProAutoWithAttr = (auto:ButtonBaseProps, props: ButtonProProps) => {
 
-    const attr = ['id', 'className', 'style', 'color', 'type', 'children', 'text',
-        'subText', 'vminHeight', 'vminWidth', 'fontSize',
-        'animationScale', 'svg', 'size'
+    const attr = ['id', 'className', 'style', 'color', 'background',
+        'type', 'children', 'text', 'subText',
+        'vminHeight', 'vminWidth', 'fontSize', 'animationScale', 'svg', 'size'
     ];
 
     attr.map((item:string,_)=>{
@@ -87,4 +87,9 @@ export const HandleHoverSize = (param:string):string => {
     }
 }
 
+export const SplicingKeyWords = (keywords:string, head:string) => {
+    const newKeywords = keywords.charAt(0).toUpperCase() + keywords.slice(1);
+    console.log(head+newKeywords)
+    return head+newKeywords;
+}
 

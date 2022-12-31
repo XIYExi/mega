@@ -3,7 +3,7 @@ import styled from "styled-components";
 import {CheckBoxCtxProps, CheckBoxType} from "./CheckBoxType";
 import {AutoJson} from './Auto';
 import {HandleCheckBoxProAutoWithAttr} from "./CheckBoxFunc";
-import CheckBoxSimplicity from "./CheckBox-Simplicity";
+import CheckBoxSimplicity from "./model/CheckBox-Simplicity";
 
 
 export interface CheckBoxBaseProps{

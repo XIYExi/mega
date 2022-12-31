@@ -1,8 +1,8 @@
 import React, {FC, useContext, useEffect, useRef} from "react";
 import styled from "styled-components";
-import {buttonBaseCtx} from "./ButtonPro";
-import {ButtonChildProps, HoverButtonProps} from "./ButtonType";
-import {HandleHoverSize, HandleNumberWithSuffix} from "./ButtonFunc";
+import {buttonBaseCtx} from "../ButtonPro";
+import {ButtonChildProps, HoverButtonProps} from "../ButtonType";
+import {HandleHoverSize, HandleNumberWithSuffix} from "../ButtonFunc";
 
 const HoverButtonIconArrow = styled.span<HoverButtonProps>`
   transition: all 0.45s cubic-bezier(0.65, 0, 0.076, 1);

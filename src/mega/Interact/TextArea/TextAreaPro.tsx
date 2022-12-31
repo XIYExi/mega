@@ -3,7 +3,7 @@ import styled from "styled-components";
 import {TextAreaCtxProps, TextAreaType} from "./TextAreaType";
 import {AutoJson} from "./Auto";
 import {HandleTextAreaProAutoWithAttr} from "./TextAreaFunc";
-import TextAreaSimplicity from "./TextArea-Simplicity";
+import TextAreaSimplicity from "./model/TextArea-Simplicity";
 
 export interface TextAreaBaseProps{
     /**

@@ -1,9 +1,9 @@
 import React, {FC, useContext, useEffect} from "react";
 import styled from "styled-components";
-import {buttonBaseCtx} from "./ButtonPro";
-import {ButtonBaseColor, ButtonBaseSize, ButtonConstant, SvgAnimationModerate} from "./ButtonStyle";
-import {ButtonChildProps, SvgButtonProps} from "./ButtonType";
-import {HandleSvgButtonAnimationScale} from "./ButtonFunc";
+import {buttonBaseCtx} from "../ButtonPro";
+import {ButtonBaseColor, ButtonBaseSize, ButtonConstant, SvgAnimationModerate} from "../ButtonStyle";
+import {ButtonChildProps, SvgButtonProps} from "../ButtonType";
+import {HandleSvgButtonAnimationScale} from "../ButtonFunc";
 
 
 const SVG = styled.div<SvgButtonProps>`

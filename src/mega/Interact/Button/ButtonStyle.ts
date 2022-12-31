@@ -1,9 +1,67 @@
-
-// 颜色
 import {keyframes} from "styled-components";
-import {SvgAnimationProps} from "./ButtonType";
-import exp from "constants";
-import {CSSProperties} from "react";
+
+
+
+export const ButtonSocialStyle = {
+    padding: '0.35rem 0.9rem 0.35rem 2.8rem',
+    letterSpacing: '0.08rem',
+    iconLeft: '0.4rem',
+    borderRadius: '0.7rem',
+    iconBorderRadius: '2rem',
+    hoverIconBorderRadius: '0.5rem',
+    transition: 'all 0.5s',
+}
+
+export const ButtonSocialTiny = {
+    wrapperWidth: '6rem',
+    wrapperHeight: '2rem',
+    iconHeight: '1.8rem',
+    iconWidth: '1.8rem',
+    svgWidth: '1.2rem',
+    svgHeight: '1.2rem',
+    textMarginLeft: '-6px',
+}
+
+export const ButtonSocialSmall = {
+    wrapperWidth: '8rem',
+    wrapperHeight: '2.1rem',
+    iconHeight: '2rem',
+    iconWidth: '2rem',
+    svgWidth: '1.2rem',
+    svgHeight: '1.2rem',
+    textMarginLeft: '0',
+}
+
+export const ButtonSocialMedium = {
+    wrapperWidth: '10rem',
+    wrapperHeight: '2.5rem',
+    iconHeight: '2.1rem',
+    iconWidth: '2.1rem',
+    svgWidth: '1.4rem',
+    svgHeight: '1.4rem',
+    textMarginLeft: '7px',
+}
+
+export const ButtonSocialLarge = {
+    wrapperWidth: '12rem',
+    wrapperHeight: '3rem',
+    iconHeight: '2.5rem',
+    iconWidth: '2.5rem',
+    svgWidth: '1.8rem',
+    svgHeight: '1.8rem',
+    textMarginLeft: '18px',
+}
+
+export const ButtonSocialHuge = {
+    wrapperWidth: '15rem',
+    wrapperHeight: '4.2rem',
+    iconHeight: '3.6rem',
+    iconWidth: '3.6rem',
+    svgWidth: '2.6rem',
+    svgHeight: '2.6rem',
+    textMarginLeft: '45px',
+}
+
 
 export const ButtonBaseColor = {
     cyber: '#ff013c',
@@ -12,7 +70,6 @@ export const ButtonBaseColor = {
     svgFont: '#fff',
 };
 
-// 字体
 export const ButtonBaseSize = {
     cyberVminSize: 3,
     cyberFontWeight:700,
@@ -20,8 +77,6 @@ export const ButtonBaseSize = {
     cyberLetterSpacing: `0.2vmin`,
 }
 
-
-// 规格
 export const ButtonConstant:{[key:string]:any} = {
     buttonBaseOverflow: 'hidden',
     svgBorderRadius: '16px',
@@ -70,7 +125,6 @@ export const ButtonConstant:{[key:string]:any} = {
         vmin5: '-37%'
     }
 }
-
 
 const CyberAnimationArr = [
     [ButtonConstant.clip_1, ButtonConstant.clip_2, ButtonConstant.clip_2, ButtonConstant.clip_2,ButtonConstant.clip_2,
@@ -181,6 +235,7 @@ export const CyberAnimationBig = keyframes`
     clip-path: ${CyberAnimationArr[0][24]};
   }
 `
+
 export const CyberAnimationSmall = keyframes`
   0% {
     clip-path: ${CyberAnimationArr[1][0]};
@@ -274,7 +329,6 @@ export const CyberAnimationSmall = keyframes`
     clip-path: ${CyberAnimationArr[1][24]};
   }
 `
-
 
 export const SvgAnimationScarcely = keyframes`
   from {

@@ -1,8 +1,8 @@
 import React, {FC, useCallback, useContext, useRef, useState} from "react";
 import styled from "styled-components";
-import {checkCtx} from "./CheckBoxPro";
-import {CheckBoxChildProps} from "./CheckBoxType";
-import {CheckBoxSimplicityConstant} from "./CheckBoxStyle";
+import {checkCtx} from "../CheckBoxPro";
+import {CheckBoxChildProps} from "../CheckBoxType";
+import {CheckBoxSimplicityConstant} from "../CheckBoxStyle";
 
 const CheckBoxSimplicityMark = styled.div`
   position: relative;

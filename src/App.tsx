@@ -3,11 +3,12 @@ import {ButtonBaseType} from "./mega/Interact/Button/ButtonType";
 import styled from "styled-components";
 import {ButtonConstant} from "./mega/Interact/Button/ButtonStyle";
 import TypeSettingDesigner from "./mega/design/TypeSetting/tool/TypeSettingDesigner";
-import TextAreaSimplicity from "./mega/Interact/TextArea/TextArea-Simplicity";
-import CheckBoxSimplicity from "./mega/Interact/CheckBox/CheckBox-Simplicity";
+import TextAreaSimplicity from "./mega/Interact/TextArea/model/TextArea-Simplicity";
+import CheckBoxSimplicity from "./mega/Interact/CheckBox/model/CheckBox-Simplicity";
 import {CheckBoxType} from "./mega/Interact/CheckBox/CheckBoxType";
 import CheckBoxPro from "./mega/Interact/CheckBox/CheckBoxPro";
-import ButtonHover from "./mega/Interact/Button/Button-Hover";
+import ButtonHover from "./mega/Interact/Button/model/Button-Hover";
+import ButtonSocial from "./mega/Interact/Button/model/Button-Social";
 
 
 const TestDiv = styled.div`
@@ -55,7 +56,7 @@ function App() {
         <TestDiv className="App">
             {/*<TypeSettingDesigner />*/}
             {/*<CheckBoxPro auto={checkBoxJson}/>*/}
-            <ButtonHover />
+            <ButtonSocial />
 
         </TestDiv>
       </div>

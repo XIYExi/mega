@@ -9,6 +9,7 @@ export let AutoJson = {
         padding: 0
     },
     color: '#fff',
+    background: 'transparent',
     type: 'Cyber' as ButtonBaseType,
     children: null,
     text: 'Button',

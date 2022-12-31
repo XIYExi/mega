@@ -1,9 +1,9 @@
 import React, {FC, useContext} from "react";
 import styled from "styled-components";
-import {ButtonBaseColor, ButtonBaseSize, ButtonConstant, CyberAnimationBig, CyberAnimationSmall} from "./ButtonStyle";
-import {buttonBaseCtx} from "./ButtonPro";
-import {ButtonChildProps, CyberButtonProps} from "./ButtonType";
-import {HandleCyberButtonVmin} from "./ButtonFunc";
+import {ButtonBaseColor, ButtonBaseSize, ButtonConstant, CyberAnimationBig, CyberAnimationSmall} from "../ButtonStyle";
+import {buttonBaseCtx} from "../ButtonPro";
+import {ButtonChildProps, CyberButtonProps} from "../ButtonType";
+import {HandleCyberButtonVmin} from "../ButtonFunc";
 
 const CyberButtonGlitch = styled.span<CyberButtonProps>`
     inset: -0.5vmin;
