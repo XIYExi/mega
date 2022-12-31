@@ -2,7 +2,7 @@ import React, {FC, useContext} from "react";
 import styled from "styled-components";
 import {ButtonBaseColor, ButtonBaseSize, ButtonConstant, CyberAnimationBig, CyberAnimationSmall} from "./ButtonStyle";
 import {buttonBaseCtx} from "./ButtonPro";
-import {CyberButtonProps} from "./ButtonType";
+import {ButtonChildProps, CyberButtonProps} from "./ButtonType";
 import {HandleCyberButtonVmin} from "./ButtonFunc";
 
 const CyberButtonGlitch = styled.span<CyberButtonProps>`
@@ -19,7 +19,7 @@ const CyberButtonGlitch = styled.span<CyberButtonProps>`
     inset: 0.2vmin 0.8vmin 0.6vmin 0.5vmin;
     background-color:${ButtonBaseColor.cyber};
     position: absolute;
-    z-index: -1;
+    z-index: -1
   }
 `
 
@@ -69,7 +69,13 @@ const CyberButtonWrapper = styled.button<CyberButtonProps>`
   
 `
 
-const ButtonCyber:FC = (props) => {
+const ButtonCyber:FC<ButtonChildProps> = (props) => {
+
+    const {
+        onClick,
+        onFocus,
+        onMouseEnter
+    } = props;
 
     const ctx = useContext(buttonBaseCtx);
 
@@ -83,10 +89,15 @@ const ButtonCyber:FC = (props) => {
     }
 
     //console.log('wrapper',ctx)
-    
+
     return (
         <React.Fragment>
-            <CyberButtonWrapper custom={wrapperProps}>
+            <CyberButtonWrapper
+                custom={wrapperProps}
+                onClick={onClick}
+                onFocus={onFocus}
+                onMouseEnter={onMouseEnter}
+            >
                 <span>{ctx?.text}</span>
                 <CyberButtonGlitch custom={wrapperProps}>{ctx?.text}</CyberButtonGlitch>
                 <CyberButtonTag custom={wrapperProps}>{ctx?.subText}</CyberButtonTag>

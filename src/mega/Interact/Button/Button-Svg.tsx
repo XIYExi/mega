@@ -2,7 +2,7 @@ import React, {FC, useContext, useEffect} from "react";
 import styled from "styled-components";
 import {buttonBaseCtx} from "./ButtonPro";
 import {ButtonBaseColor, ButtonBaseSize, ButtonConstant, SvgAnimationModerate} from "./ButtonStyle";
-import {SvgButtonProps} from "./ButtonType";
+import {ButtonChildProps, SvgButtonProps} from "./ButtonType";
 import {HandleSvgButtonAnimationScale} from "./ButtonFunc";
 
 
@@ -56,7 +56,13 @@ const SvgButtonWrapper = styled.button<SvgButtonProps>`
   }
 `
 
-const ButtonSvg:FC = (props) => {
+const ButtonSvg:FC<ButtonChildProps> = (props) => {
+
+    const {
+        onClick,
+        onFocus,
+        onMouseEnter
+    } = props;
 
     const ctx = useContext(buttonBaseCtx);
 
@@ -82,7 +88,12 @@ const ButtonSvg:FC = (props) => {
 
     return (
         <React.Fragment>
-            <SvgButtonWrapper custom={wrapperProps}>
+            <SvgButtonWrapper
+                custom={wrapperProps}
+                onClick={onClick}
+                onMouseEnter={onMouseEnter}
+                onFocus={onFocus}
+            >
                 <SvgWrapper custom={wrapperProps}>
                     <SVG custom={wrapperProps}>
                         {

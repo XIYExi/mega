@@ -22,8 +22,8 @@ export const HandleButtonProFontColor = (color:string) => {
 export const HandleButtonProAutoWithAttr = (auto:ButtonBaseProps, props: ButtonProProps) => {
 
     const attr = ['id', 'className', 'style', 'color', 'type', 'children', 'text',
-        'subText', 'vminHeight', 'vminWidth', 'fontSize', 'onClick','onFocus', 'onMouseEnter',
-        'animationScale', 'svg'
+        'subText', 'vminHeight', 'vminWidth', 'fontSize',
+        'animationScale', 'svg', 'size'
     ];
 
     attr.map((item:string,_)=>{
@@ -51,3 +51,40 @@ export const HandleSvgButtonAnimationScale = (scale:string) => {
         default:return SvgAnimationModerate;
     }
 }
+
+/**
+ * 处理带后缀的数字
+ * 正则匹配前序的数字，除以n之后拼接返回
+ * @param str
+ * @param n
+ * @constructor
+ */
+export const HandleNumberWithSuffix = (str:string, n: number = 4):string=>{
+    const re = str.match(/[0-9]*/);
+    let value:string = '';
+    if (re) {
+        //console.log(re[0])
+        const list = str.split(re[0]);
+        let arr:string = re[0];
+        arr = (Number(arr) / n).toString();
+        //console.log(arr)
+        value = arr + list[1];
+        //console.log(value)
+    }
+    //
+    return value;
+}
+
+
+export const HandleHoverSize = (param:string):string => {
+    switch (param){
+        case 'tiny':return '9rem';
+        case 'small':return '10rem';
+        case 'medium':return '11rem';
+        case 'large':return '12rem';
+        case 'huge':return'13rem'
+        default:return '11rem';
+    }
+}
+
+

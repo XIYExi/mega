@@ -43,3 +43,17 @@ export interface SvgButtonWrapperCustom extends Omit<BaseButtonWrapperCustom, 'a
 export interface SvgAnimationProps{
 
 }
+
+
+export interface HoverButtonProps{
+    width: string;
+
+}
+
+export type ButtonProSizeType = 'tiny' | 'small' | 'medium' | 'large' | 'huge';
+
+export interface ButtonChildProps{
+    onClick?:(e:any)=>void;
+    onFocus?:(e:any)=>void;
+    onMouseEnter?:(e:any)=>void;
+}

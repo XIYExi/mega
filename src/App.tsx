@@ -7,6 +7,7 @@ import TextAreaSimplicity from "./mega/Interact/TextArea/TextArea-Simplicity";
 import CheckBoxSimplicity from "./mega/Interact/CheckBox/CheckBox-Simplicity";
 import {CheckBoxType} from "./mega/Interact/CheckBox/CheckBoxType";
 import CheckBoxPro from "./mega/Interact/CheckBox/CheckBoxPro";
+import ButtonHover from "./mega/Interact/Button/Button-Hover";
 
 
 const TestDiv = styled.div`
@@ -52,8 +53,9 @@ function App() {
       <div>
 
         <TestDiv className="App">
-            <TypeSettingDesigner />
+            {/*<TypeSettingDesigner />*/}
             {/*<CheckBoxPro auto={checkBoxJson}/>*/}
+            <ButtonHover />
 
         </TestDiv>
       </div>

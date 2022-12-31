@@ -3,7 +3,7 @@ import {ComponentMeta, ComponentStory, storiesOf} from "@storybook/react";
 import styled from "styled-components";
 
 import ButtonPro from "../index";
-import {ButtonBaseType} from "../ButtonType";
+import {ButtonBaseType, ButtonProSizeType} from "../ButtonType";
 
 const TestDiv = styled.div`
   align-items: center;
@@ -42,9 +42,6 @@ const jsonCyber = {
     vminWidth: 60,//建议保持为fontSize的12倍
     vminHeight: 15,//建议保持为fontSize的3倍
     fontSize: 5,//value in [2,3,4,5]
-    onClick: () => {console.log('你按下了一个Button')},
-    onFocus: () => {console.log('Focus')},
-    onMouseEnter: () => {console.log('孩子不懂事，移着玩的')},
 }
 Cyber_Btn.args = {
     id: 'Cyber',
@@ -78,10 +75,26 @@ const jsonSvg = {
     vminHeight: 15,//建议保持为fontSize的3倍
     fontSize: 5,//value in [2,3,4,5]
     svg: <SvgIcon/>,
-    onClick: () => {console.log('你按下了一个Button')},
-    onFocus: () => {console.log('Focus')},
-    onMouseEnter: () => {console.log('孩子不懂事，移着玩的')},
 }
 Svg_Btn.args = {
     auto: jsonSvg
+}
+
+
+export const Hover_btn = Template.bind({});
+const jsonHover = {
+    id: 'hover_btn',
+    className: 'button_common',
+    style: {
+        margin: 0,
+        padding: 0
+    },
+    color: '#fff',
+    type: 'Hover' as ButtonBaseType,
+    text: 'Hover Button',
+    fontSize: 5,//value in [2,3,4,5]
+    size: 'medium' as ButtonProSizeType,
+}
+Hover_btn.args = {
+    auto: jsonHover
 }

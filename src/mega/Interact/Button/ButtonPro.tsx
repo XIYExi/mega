@@ -1,10 +1,11 @@
 import React, {createContext, CSSProperties, FC, ReactNode, useEffect, useMemo, useState} from 'react';
-import {ButtonAnimationScaleType, ButtonBaseType} from './ButtonType';
+import {ButtonAnimationScaleType, ButtonBaseType, ButtonProSizeType} from './ButtonType';
 import styled from "styled-components";
 import ButtonCyber from "./Button-Cyber";
 import {HandleButtonProAutoWithAttr} from "./ButtonFunc";
 import {AutoJson} from "./Auto";
 import ButtonSvg from "./Button-Svg";
+import ButtonHover from "./Button-Hover";
 
 export interface ButtonBaseProps{
     /**
@@ -48,6 +49,11 @@ export interface ButtonBaseProps{
     subText?:string;
 
     /**
+     * 尺寸，自动配置
+     */
+    size?: ButtonProSizeType;
+
+    /**
      * 最小宽度，建议默认
      */
     vminWidth?: number;
@@ -75,17 +81,17 @@ export interface ButtonBaseProps{
     /**
      * 点击回调
      */
-    onClick?:()=>void;
+    onClick?:(e:any)=>void;
 
     /**
      * 聚焦回调
      */
-    onFocus?:()=>void;
+    onFocus?:(e:any)=>void;
 
     /**
      * 鼠标移入回调
      */
-    onMouseEnter?:()=>void;
+    onMouseEnter?:(e:any)=>void;
 }
 
 export interface ButtonAutoProps extends ButtonBaseProps{
@@ -116,6 +122,8 @@ interface ButtonBaseCtx{
     animationScale?:string;
 
     svg?:ReactNode;
+
+    size?:string;
 }
 
 export const buttonBaseCtx = createContext<ButtonBaseCtx | null>(null);
@@ -147,6 +155,7 @@ const ButtonPro:FC<ButtonProProps> = (props) => {
         onMouseEnter,
         animationScale,
         svg,
+        size,
     } = props;
 
     const [autoTable, setAutoTable] = useState<ButtonBaseProps>(auto ? auto : AutoJson);
@@ -175,6 +184,7 @@ const ButtonPro:FC<ButtonProProps> = (props) => {
                     vminHeight: autoTable.vminHeight,
                     fontSize: autoTable.fontSize? autoTable.fontSize : 5,
                     svg: autoTable.svg ? autoTable.svg : null,
+                    size: autoTable.size ? autoTable.size : 'medium',
                 });
             }
         }
@@ -194,9 +204,14 @@ const ButtonPro:FC<ButtonProProps> = (props) => {
     const renderBtn = (type:string|undefined) => {
         const tmp = (type === undefined) ? 'Cyber' : type;
         switch (tmp){
-            case 'Cyber':return (<ButtonCyber></ButtonCyber>);
-            case 'Svg':return (<ButtonSvg></ButtonSvg>)
-            default: return(<React.Fragment></React.Fragment>);
+            case'Cyber':
+                return (<ButtonCyber onMouseEnter={onMouseEnter} onFocus={onFocus} onClick={onClick}/>);
+            case'Svg':
+                return (<ButtonSvg onMouseEnter={onMouseEnter} onFocus={onFocus} onClick={onClick}/>)
+            case 'Hover':
+                return (<ButtonHover onMouseEnter={onMouseEnter} onFocus={onFocus} onClick={onClick}/>)
+            default:
+                return(<div style={{color:'red'}}>Error: render in Button</div>);
         }
     }
 
@@ -209,7 +224,9 @@ const ButtonPro:FC<ButtonProProps> = (props) => {
                 style={style}
             >
                 <buttonBaseCtx.Provider value={buttonBaseStyle}>
-                    {renderBtn(autoTable.type)}
+                    {
+                        renderBtn(autoTable.type)
+                    }
                 </buttonBaseCtx.Provider>
             </BaseButtonThemeWrapper>
         </div>
