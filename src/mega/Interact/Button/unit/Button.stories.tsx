@@ -3,7 +3,7 @@ import {ComponentMeta, ComponentStory, storiesOf} from "@storybook/react";
 import styled from "styled-components";
 
 import ButtonPro from "../index";
-import {ButtonBaseType, ButtonProSizeType} from "../ButtonType";
+import {ButtonAnimationScaleType, ButtonBaseType, ButtonProSizeType} from "../ButtonType";
 
 const TestDiv = styled.div`
   align-items: center;
@@ -26,6 +26,14 @@ const Template: ComponentStory<typeof ButtonPro> = (args) =>(
     </TestDiv>
 )
 
+
+/**
+ * =========================================
+ *
+ * Cyber
+ *
+ * =========================================
+ */
 export const Cyber_Btn = Template.bind({});
 const jsonCyber = {
     id: 'cyber_btn',
@@ -51,6 +59,14 @@ Cyber_Btn.args = {
 }
 
 
+
+/**
+ * =========================================
+ *
+ * Svg
+ *
+ * =========================================
+ */
 export const Svg_Btn = Template.bind({});
 const SvgIcon = () => (
     <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="24" height="24">
@@ -81,6 +97,14 @@ Svg_Btn.args = {
 }
 
 
+
+/**
+ * =========================================
+ *
+ * Hover
+ *
+ * =========================================
+ */
 export const Hover_btn = Template.bind({});
 const jsonHover = {
     id: 'hover_btn',
@@ -99,6 +123,15 @@ Hover_btn.args = {
     auto: jsonHover
 }
 
+
+
+/**
+ * =========================================
+ *
+ * Social
+ *
+ * =========================================
+ */
 export const Social_btn = Template.bind({});
 const jsonSocial = {
     id: 'social_btn',
@@ -124,4 +157,36 @@ Social_btn.args = {
     auto: jsonSocial,
     svg: <DefaultSvg/>,
     text: 'Button',
+}
+
+
+
+/**
+ * =========================================
+ *
+ * Text
+ *
+ * =========================================
+ */
+export const Text_btn = Template.bind({});
+const jsonText = {
+    id: 'text',
+    className: '_text_Button',
+    style: {
+        margin: 0,
+        padding: 0
+    },
+    color: '#fff',
+    background: 'transparent',
+    type: 'Text' as ButtonBaseType,
+    children: null,
+    text: 'Button',
+    animationScale:'moderate' as ButtonAnimationScaleType,
+    svg: null,
+    size: 'medium' as ButtonProSizeType,
+}
+Text_btn.args = {
+    auto: jsonText,
+    background: '#c84747',
+    color: '#111',
 }

@@ -9,7 +9,7 @@ export type ButtonPrimaryBarType = 'primary' // 默认长条
 
 export type ButtonType = 'mini' | 'primary' | 'rectangle' | 'circle';
 
-export type ButtonBaseType = 'Cyber' | 'Svg' | 'Hover' | 'Social';
+export type ButtonBaseType = 'Cyber' | 'Svg' | 'Hover' | 'Social' | 'Text';
 
 export type ButtonProSizeType = 'tiny' | 'small' | 'medium' | 'large' | 'huge';
 

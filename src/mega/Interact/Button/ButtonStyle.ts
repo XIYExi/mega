@@ -9,6 +9,10 @@ import {keyframes} from "styled-components";
  */
 export const ButtonTextStyle = {
     textAfterHeight: '2px',
+    textBeforeHoverWidth:'100%',
+    gap: '0.5rem',
+    padding: '0',
+    margin: '0',
 }
 
 export const ButtonTextTiny = {

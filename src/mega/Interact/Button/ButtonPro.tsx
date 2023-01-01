@@ -7,6 +7,7 @@ import {AutoJson} from "./Auto";
 import ButtonSvg from "./model/Button-Svg";
 import ButtonHover from "./model/Button-Hover";
 import ButtonSocial from "./model/Button-Social";
+import ButtonText from "./model/Button-Text";
 
 export interface ButtonBaseProps{
     /**
@@ -217,11 +218,13 @@ const ButtonPro:FC<ButtonProProps> = (props) => {
             case'Cyber':
                 return (<ButtonCyber onMouseEnter={onMouseEnter} onFocus={onFocus} onClick={onClick}/>);
             case'Svg':
-                return (<ButtonSvg onMouseEnter={onMouseEnter} onFocus={onFocus} onClick={onClick}/>)
+                return (<ButtonSvg onMouseEnter={onMouseEnter} onFocus={onFocus} onClick={onClick}/>);
             case 'Hover':
-                return (<ButtonHover onMouseEnter={onMouseEnter} onFocus={onFocus} onClick={onClick}/>)
+                return (<ButtonHover onMouseEnter={onMouseEnter} onFocus={onFocus} onClick={onClick}/>);
             case 'Social':
-                return (<ButtonSocial onMouseEnter={onMouseEnter} onFocus={onFocus} onClick={onClick}/> )
+                return (<ButtonSocial onMouseEnter={onMouseEnter} onFocus={onFocus} onClick={onClick}/> );
+            case 'Text':
+                return (<ButtonText onMouseEnter={onMouseEnter} onFocus={onFocus} onClick={onClick}/> );
             default:
                 return(<div style={{color:'red'}}>Error: render in Button</div>);
         }
