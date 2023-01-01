@@ -1,5 +1,4 @@
 import {Keyframes} from "styled-components";
-import exp from "constants";
 
 export type ButtonColorType = 'gray' | 'dark' | 'light' | 'primary';
 
@@ -25,9 +24,31 @@ interface BaseButtonWrapperCustom{
     fontWeight: number,
     animatorType:number,
 }
+
+
+
 /**
- * Cyber Button
- * */
+ * =========================================
+ *
+ * Button按钮通用约束
+ *
+ * =========================================
+ */
+export interface ButtonChildProps{
+    onClick?:(e:any)=>void;
+    onFocus?:(e:any)=>void;
+    onMouseEnter?:(e:any)=>void;
+}
+
+
+
+/**
+ * =========================================
+ *
+ * Button Cyber Interface
+ *
+ * =========================================
+ */
 export interface CyberButtonProps{
     custom:CyberButtonWrapperCustom,
 }
@@ -35,6 +56,15 @@ export interface CyberButtonWrapperCustom extends BaseButtonWrapperCustom{
 
 }
 
+
+
+/**
+ * =========================================
+ *
+ * Button Svg Interface
+ *
+ * =========================================
+ */
 export interface SvgButtonProps{
     custom: SvgButtonWrapperCustom
 }
@@ -47,17 +77,29 @@ export interface SvgAnimationProps{
 }
 
 
+
+/**
+ * =========================================
+ *
+ * Button Hover Interface
+ *
+ * =========================================
+ */
 export interface HoverButtonProps{
     width: string;
 
 }
 
-export interface ButtonChildProps{
-    onClick?:(e:any)=>void;
-    onFocus?:(e:any)=>void;
-    onMouseEnter?:(e:any)=>void;
-}
 
+
+
+/**
+ * =========================================
+ *
+ * Button Social Interface
+ *
+ * =========================================
+ */
 export interface ButtonSocialProps{
     param: SocialValue,
     color: string,
@@ -72,3 +114,23 @@ interface SocialValue{
     textMarginLeft:string,
 }
 
+
+
+
+/**
+ * =========================================
+ *
+ * Button Text Interface
+ *
+ * =========================================
+ */
+export interface ButtonTextProps{
+    param: TextValue,
+}
+interface TextValue{
+    wrapperHeight: string,
+    wrapperWidth: string,
+    svgWidth: string,
+    textAfterBottom: string,
+    textAfterHoverWidth: string,
+}

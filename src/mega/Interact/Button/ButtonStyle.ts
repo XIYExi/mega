@@ -1,7 +1,69 @@
 import {keyframes} from "styled-components";
 
+/**
+ * ===============================================
+ *
+ * Button Text 文字动效按钮组件样式
+ *
+ * ===============================================
+ */
+export const ButtonTextStyle = {
+    textAfterHeight: '2px',
+}
+
+export const ButtonTextTiny = {
+    wrapperHeight: '30px',
+    wrapperWidth: '6rem',
+    svgWidth: '12px',
+    textAfterBottom: '-4px',
+    textAfterHoverWidth: '144%',
+}
 
 
+export const ButtonTextSmall = {
+    wrapperHeight: '35px',
+    wrapperWidth: '7rem',
+    svgWidth: '15px',
+    textAfterBottom: '-7px',
+    textAfterHoverWidth: '143%',
+}
+
+
+export const ButtonTextMedium = {
+    wrapperHeight: '40px',
+    wrapperWidth: '12rem',
+    svgWidth: '15px',
+    textAfterBottom: '-7px',
+    textAfterHoverWidth: '140%',
+}
+
+
+export const ButtonTextLarge = {
+    wrapperHeight: '40px',
+    wrapperWidth: '10rem',
+    svgWidth: '15px',
+    textAfterBottom: '-7px',
+    textAfterHoverWidth: '135%',
+}
+
+
+export const ButtonTextHuge = {
+    wrapperHeight: '45px',
+    wrapperWidth: '13rem',
+    svgWidth: '15px',
+    textAfterBottom: '-7px',
+    textAfterHoverWidth: '135%',
+}
+
+
+
+/**
+ * ===============================================
+ *
+ * Button Social 社交按钮组件样式
+ *
+ * ===============================================
+ */
 export const ButtonSocialStyle = {
     padding: '0.35rem 0.9rem 0.35rem 2.8rem',
     letterSpacing: '0.08rem',
@@ -11,6 +73,7 @@ export const ButtonSocialStyle = {
     hoverIconBorderRadius: '0.5rem',
     transition: 'all 0.5s',
 }
+
 
 export const ButtonSocialTiny = {
     wrapperWidth: '6rem',
@@ -22,6 +85,7 @@ export const ButtonSocialTiny = {
     textMarginLeft: '-6px',
 }
 
+
 export const ButtonSocialSmall = {
     wrapperWidth: '8rem',
     wrapperHeight: '2.1rem',
@@ -31,6 +95,7 @@ export const ButtonSocialSmall = {
     svgHeight: '1.2rem',
     textMarginLeft: '0',
 }
+
 
 export const ButtonSocialMedium = {
     wrapperWidth: '10rem',
@@ -42,6 +107,7 @@ export const ButtonSocialMedium = {
     textMarginLeft: '7px',
 }
 
+
 export const ButtonSocialLarge = {
     wrapperWidth: '12rem',
     wrapperHeight: '3rem',
@@ -51,6 +117,7 @@ export const ButtonSocialLarge = {
     svgHeight: '1.8rem',
     textMarginLeft: '18px',
 }
+
 
 export const ButtonSocialHuge = {
     wrapperWidth: '15rem',
