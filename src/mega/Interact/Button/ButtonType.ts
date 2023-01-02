@@ -134,3 +134,19 @@ interface TextValue{
     textAfterBottom: string,
     textAfterHoverWidth: string,
 }
+
+
+
+/**
+ * =========================================
+ *
+ * Button Player Interface
+ *
+ * =========================================
+ */
+export interface ButtonPlayerProps{
+    param: PlayerValue;
+}
+interface PlayerValue{
+
+}

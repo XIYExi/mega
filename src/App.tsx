@@ -1,6 +1,7 @@
 import React from 'react';
 import styled from "styled-components";
 import ButtonText from "./mega/Interact/Button/model/Button-Text";
+import CodeShowerSimplicity from "./mega/Exhibit/Code/CodeShower-Simplicity";
 
 const TestDiv = styled.div`
   overflow: hidden;
@@ -26,15 +27,13 @@ const SvgIcon = () => (
 
 function App() {
 
-
-
   return (
       <div>
 
         <TestDiv className="App">
-
-            <ButtonText />
-
+            <div style={{width:'70vw'}}>
+                <CodeShowerSimplicity />
+            </div>
         </TestDiv>
       </div>
   );
