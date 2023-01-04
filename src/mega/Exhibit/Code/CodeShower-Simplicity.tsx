@@ -1,6 +1,8 @@
-import React, {FC} from "react";
+import React, {FC, useEffect, useState} from "react";
 import styled from "styled-components";
 import ButtonPro from "../../Interact/Button";
+import ReactMarkdown from "react-markdown";
+
 
 const ShowerContainer = styled.div`
   width: 100%;
@@ -71,7 +73,27 @@ const CodeShowWrapper = styled.div`
   }
 `
 
+
 const CodeShowerSimplicity:FC = () => {
+
+    const [md, setMD] = useState<string>('loading... ...');
+
+    useEffect(()=>{
+        fetch('unit/code.md')
+            .then((resp) => resp.text())
+            .then((text) => setMD(text));
+    },[md])
+
+    const mark = '```html ' +
+        '<button class="class Name" id="_btn">\n' +
+        '    <div class="wrapper">\n' +
+        '        <span>Hello</span>\n' +
+        '    </div>\n' +
+        '    <div class="text">\n' +
+        '        <span>World!</span>\n' +
+        '    </div>\n' +
+        '</button>```';
+
 
     return(
         <React.Fragment>
@@ -93,6 +115,7 @@ const CodeShowerSimplicity:FC = () => {
                     </Exhibition>
                 </CodeShowWrapper>
                 <Code >
+                    <ReactMarkdown children={mark}/>
 
                 </Code>
 
