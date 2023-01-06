@@ -8,10 +8,51 @@ import {keyframes} from "styled-components";
  *
  * ===============================================
  */
+
 export const ButtonPlayerStyle = {
 
 }
 
+export const ButtonPlayerTiny = {
+    width: '6.5rem',
+    height: '2rem',
+    svgWidth: '32px',
+    svgHeight: '36px',
+    svgHoverTransform: 'scale(3) translate(70%)'
+}
+
+
+export const ButtonPlayerSmall = {
+    width: '7rem',
+    height: '2.5rem',
+    svgWidth: '32px',
+    svgHeight: '36px',
+    svgHoverTransform: 'scale(3) translate(50%)'
+}
+
+export const ButtonPlayerMedium = {
+    width: '8.5rem',
+    height: '2.5rem',
+    svgWidth: '36px',
+    svgHeight: '36px',
+    svgHoverTransform: 'scale(3) translate(50%)'
+}
+
+export const ButtonPlayerLarge = {
+    width: '10rem',
+    height: '2.5rem',
+    svgWidth: '40px',
+    svgHeight: '40px',
+    svgHoverTransform: 'scale(3) translate(50%)'
+}
+
+export const ButtonPlayerHuge = {
+    width: '12rem',
+    height: '3rem',
+    svgWidth: '50px',
+    svgHeight: '50px',
+    svgHoverTransform: 'scale(3) translate(50%)'
+}
 
 
 /**

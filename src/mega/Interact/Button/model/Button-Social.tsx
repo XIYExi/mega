@@ -1,4 +1,4 @@
-import React, {FC, useContext} from "react";
+import React, {FC, memo, useContext} from "react";
 import styled from "styled-components";
 import {ButtonChildProps, ButtonSocialProps} from "../ButtonType";
 import {buttonBaseCtx} from "../ButtonPro";
@@ -135,4 +135,4 @@ const ButtonSocial:FC<ButtonChildProps> = (props) => {
     )
 }
 
-export default ButtonSocial;
+export default memo(ButtonSocial);

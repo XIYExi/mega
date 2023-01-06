@@ -1,4 +1,4 @@
-import React, {FC, useContext} from "react";
+import React, {FC, memo, useContext} from "react";
 import styled from "styled-components";
 import {ButtonChildProps, ButtonTextProps} from "../ButtonType";
 import {buttonBaseCtx} from "../ButtonPro";
@@ -158,4 +158,4 @@ const ButtonText:FC<ButtonChildProps> = (props) => {
     )
 }
 
-export default ButtonText;
+export default memo(ButtonText);

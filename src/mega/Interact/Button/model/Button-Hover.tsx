@@ -1,4 +1,4 @@
-import React, {FC, useContext, useEffect, useRef} from "react";
+import React, {FC, memo, useContext, useEffect, useRef} from "react";
 import styled from "styled-components";
 import {buttonBaseCtx} from "../ButtonPro";
 import {ButtonChildProps, HoverButtonProps} from "../ButtonType";
@@ -143,6 +143,6 @@ const ButtonHover:FC<ButtonChildProps> = (props) => {
     )
 }
 
-export default ButtonHover;
+export default memo(ButtonHover);
 
 

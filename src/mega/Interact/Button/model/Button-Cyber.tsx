@@ -1,4 +1,4 @@
-import React, {FC, useContext} from "react";
+import React, {FC, memo, useContext} from "react";
 import styled from "styled-components";
 import {ButtonBaseColor, ButtonBaseSize, ButtonConstant, CyberAnimationBig, CyberAnimationSmall} from "../ButtonStyle";
 import {buttonBaseCtx} from "../ButtonPro";
@@ -106,4 +106,4 @@ const ButtonCyber:FC<ButtonChildProps> = (props) => {
     )
 }
 
-export default ButtonCyber;
+export default memo(ButtonCyber);

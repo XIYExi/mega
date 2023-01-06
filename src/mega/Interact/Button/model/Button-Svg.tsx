@@ -1,4 +1,4 @@
-import React, {FC, useContext, useEffect} from "react";
+import React, {FC, memo, useContext, useEffect} from "react";
 import styled from "styled-components";
 import {buttonBaseCtx} from "../ButtonPro";
 import {ButtonBaseColor, ButtonBaseSize, ButtonConstant, SvgAnimationModerate} from "../ButtonStyle";
@@ -107,4 +107,4 @@ const ButtonSvg:FC<ButtonChildProps> = (props) => {
     )
 }
 
-export default ButtonSvg;
+export default memo(ButtonSvg);

@@ -2,6 +2,7 @@ import React from 'react';
 import styled from "styled-components";
 import ButtonText from "./mega/Interact/Button/model/Button-Text";
 import CodeShowerSimplicity from "./mega/Exhibit/Code/CodeShower-Simplicity";
+import ButtonPlayer from "./mega/Interact/Button/model/Button-Player";
 
 const TestDiv = styled.div`
   overflow: hidden;
@@ -32,7 +33,8 @@ function App() {
 
         <TestDiv className="App">
             <div style={{width:'70vw'}}>
-                <CodeShowerSimplicity />
+                {/*<CodeShowerSimplicity />*/}
+                <ButtonPlayer />
             </div>
         </TestDiv>
       </div>
