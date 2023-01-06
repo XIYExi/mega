@@ -1,9 +1,10 @@
-import React, {FC} from "react";
+import React, {FC, memo, useContext} from "react";
 import styled from "styled-components";
 import {ButtonChildProps} from "../ButtonType";
+import {buttonBaseCtx} from "../ButtonPro";
 
 const PlayerDefaultSvg = () => (
-    <svg height="36px" width="36px" viewBox="0 0 36 36" xmlns="http://www.w3.org/2000/svg">
+    <svg viewBox="0 0 36 36" xmlns="http://www.w3.org/2000/svg">
         <rect fill="#fdd835" y="0" x="0" height="36" width="36"></rect>
         <path
             d="M38.67,42H11.52C11.27,40.62,11,38.57,11,36c0-5,0-11,0-11s1.44-7.39,3.22-9.59 c1.67-2.06,2.76-3.48,6.78-4.41c3-0.7,7.13-0.23,9,1c2.15,1.42,3.37,6.67,3.81,11.29c1.49-0.3,5.21,0.2,5.5,1.28 C40.89,30.29,39.48,38.31,38.67,42z"
@@ -33,20 +34,78 @@ const PlayerDefaultSvg = () => (
 )
 
 
-const ButtonPlayerWrapper = styled.button`
-
-`
-
 const ButtonPlayerText = styled.span`
-
+  transition: all .5s ease;
+  transition-delay: 300ms;
 `
 
 const ButtonPlayerSubText = styled.span`
+  position: absolute;
+  left: 0;
+  transform: translateX(-100%);
+  transition: all .5s ease;
+  z-index: 2;
+`
 
+const ButtonPlayerWrapper = styled.button`
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  padding: 0 10px;
+  color: white;
+  text-shadow: 2px 2px rgb(116, 116, 116);
+  text-transform: uppercase;
+  border: solid 2px black;
+  letter-spacing: 1px;
+  font-weight: 600;
+  font-size: 17px;
+  background-color: hsl(49deg 98% 60%);
+  border-radius: 50px;
+  position: relative;
+  overflow: hidden;
+  transition: all .5s ease;
+  width: 6.5rem;
+  height: 2rem;
+  
+  & svg{
+    width: 32px;
+    height: 36px;
+  }
+  
+  &:active{
+    transform: scale(.9);
+    transition: all 100ms ease;
+  }
+  
+  & svg{
+    transition: all .5s ease;
+    z-index: 2;
+  }
+  
+  &:hover svg{
+    transform: scale(3) translate(70%);
+  }
+  
+  &:hover ${ButtonPlayerSubText} {
+    transform: translateX(10px);
+    transition-delay: 300ms;
+  }
+  
+  &:hover ${ButtonPlayerText} {
+    transform: translateX(200%);
+    transition-delay: 300ms;
+  }
 `
 
 const ButtonPlayer:FC<ButtonChildProps> = (props) => {
 
+    const ctx = useContext(buttonBaseCtx);
+
+    const ctxValue = {
+        size: ctx?.size ? ctx.size : 'medium',
+
+    }
 
     return(
         <ButtonPlayerWrapper>
@@ -57,4 +116,4 @@ const ButtonPlayer:FC<ButtonChildProps> = (props) => {
     )
 }
 
-export default ButtonPlayer
+export default memo(ButtonPlayer);
