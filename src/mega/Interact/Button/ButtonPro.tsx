@@ -238,7 +238,6 @@ const ButtonPro:FC<ButtonProProps> = (props) => {
             <BaseButtonThemeWrapper
                 id={id}
                 className={className}
-                onClick={onClick}
                 style={style}
             >
                 <buttonBaseCtx.Provider value={buttonBaseStyle}>

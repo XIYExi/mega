@@ -112,6 +112,12 @@ const ButtonPlayerWrapper = styled.button<ButtonPlayerProps & {
 
 const ButtonPlayer:FC<ButtonChildProps> = (props) => {
 
+    const {
+        onClick,
+        onFocus,
+        onMouseEnter
+    } = props;
+
     const ctx = useContext(buttonBaseCtx);
 
     const ctxValue = {
@@ -150,6 +156,7 @@ const ButtonPlayer:FC<ButtonChildProps> = (props) => {
             fontSize={ctxValue.fontSize}
             fontColor={ctxValue.fontColor}
             background={ctxValue.background}
+            onMouseEnter={onMouseEnter} onFocus={onFocus} onClick={onClick}
         >
             { ctxValue.svg }
             <ButtonPlayerSubText>{ctxValue.subText}</ButtonPlayerSubText>
