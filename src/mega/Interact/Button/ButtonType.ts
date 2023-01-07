@@ -9,7 +9,7 @@ export type ButtonPrimaryBarType = 'primary' // 默认长条
 
 export type ButtonType = 'mini' | 'primary' | 'rectangle' | 'circle';
 
-export type ButtonBaseType = 'Cyber' | 'Svg' | 'Hover' | 'Social' | 'Text';
+export type ButtonBaseType = 'Cyber' | 'Svg' | 'Hover' | 'Social' | 'Text' | 'Player';
 
 export type ButtonProSizeType = 'tiny' | 'small' | 'medium' | 'large' | 'huge';
 
@@ -148,5 +148,9 @@ export interface ButtonPlayerProps{
     param: PlayerValue;
 }
 interface PlayerValue{
-
+    width: string,
+    height: string,
+    svgWidth: string,
+    svgHeight: string,
+    svgHoverTransform: string
 }

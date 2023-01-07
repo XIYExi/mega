@@ -8,9 +8,13 @@ import {keyframes} from "styled-components";
  *
  * ===============================================
  */
-
 export const ButtonPlayerStyle = {
-
+    gap: '10px',
+    padding: '0 10px',
+    textShadow: '2px 2px rgb(116, 116, 116)',
+    letterSpacing: '1px',
+    backgroundColor: '',
+    borderRadius: '50px',
 }
 
 export const ButtonPlayerTiny = {

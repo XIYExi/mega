@@ -8,6 +8,7 @@ import ButtonSvg from "./model/Button-Svg";
 import ButtonHover from "./model/Button-Hover";
 import ButtonSocial from "./model/Button-Social";
 import ButtonText from "./model/Button-Text";
+import ButtonPlayer from "./model/Button-Player";
 
 export interface ButtonBaseProps{
     /**
@@ -225,6 +226,8 @@ const ButtonPro:FC<ButtonProProps> = (props) => {
                 return (<ButtonSocial onMouseEnter={onMouseEnter} onFocus={onFocus} onClick={onClick}/> );
             case 'Text':
                 return (<ButtonText onMouseEnter={onMouseEnter} onFocus={onFocus} onClick={onClick}/> );
+            case 'Player':
+                return (<ButtonPlayer onMouseEnter={onMouseEnter} onFocus={onFocus} onClick={onClick}/> );
             default:
                 return(<div style={{color:'red'}}>Error: render in Button</div>);
         }

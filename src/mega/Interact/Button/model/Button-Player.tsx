@@ -1,7 +1,14 @@
 import React, {FC, memo, useContext} from "react";
 import styled from "styled-components";
-import {ButtonChildProps} from "../ButtonType";
+import {ButtonChildProps, ButtonPlayerProps} from "../ButtonType";
 import {buttonBaseCtx} from "../ButtonPro";
+import {
+    ButtonPlayerHuge,
+    ButtonPlayerLarge,
+    ButtonPlayerMedium,
+    ButtonPlayerSmall, ButtonPlayerStyle,
+    ButtonPlayerTiny,
+} from "../ButtonStyle";
 
 const PlayerDefaultSvg = () => (
     <svg viewBox="0 0 36 36" xmlns="http://www.w3.org/2000/svg">
@@ -47,44 +54,49 @@ const ButtonPlayerSubText = styled.span`
   z-index: 2;
 `
 
-const ButtonPlayerWrapper = styled.button`
+const ButtonPlayerWrapper = styled.button<ButtonPlayerProps & {
+    fontColor: string;
+    fontSize: string | number;
+    background: string;
+}>`
   display: flex;
   align-items: center;
   justify-content: center;
-  gap: 10px;
-  padding: 0 10px;
-  color: white;
-  text-shadow: 2px 2px rgb(116, 116, 116);
+  gap: ${ButtonPlayerStyle.gap};
+  padding: ${ButtonPlayerStyle.padding};
+  color: ${props=>props.fontColor};
+  text-shadow: ${ButtonPlayerStyle.textShadow};
   text-transform: uppercase;
   border: solid 2px black;
-  letter-spacing: 1px;
+  letter-spacing: ${ButtonPlayerStyle.letterSpacing};
   font-weight: 600;
-  font-size: 17px;
-  background-color: hsl(49deg 98% 60%);
-  border-radius: 50px;
+  font-size: ${ 
+    props => 
+          (typeof props.fontSize === 'number') ?  props.fontSize + 'px' : props.fontSize };
+  background-color: ${props=>props.background};
+  border-radius: ${ButtonPlayerStyle.borderRadius};
   position: relative;
   overflow: hidden;
   transition: all .5s ease;
-  width: 6.5rem;
-  height: 2rem;
+  width: ${props => props.param.width};
+  height: ${props => props.param.height};
   
   & svg{
-    width: 32px;
-    height: 36px;
+    width: ${props => props.param.svgWidth};
+    height: ${props => props.param.svgHeight};
+    transition: all .5s ease;
+    z-index: 2;
+    background: transparent;
   }
   
   &:active{
     transform: scale(.9);
     transition: all 100ms ease;
   }
-  
-  & svg{
-    transition: all .5s ease;
-    z-index: 2;
-  }
+   
   
   &:hover svg{
-    transform: scale(3) translate(70%);
+    transform: ${props => props.param.svgHoverTransform};
   }
   
   &:hover ${ButtonPlayerSubText} {
@@ -104,14 +116,41 @@ const ButtonPlayer:FC<ButtonChildProps> = (props) => {
 
     const ctxValue = {
         size: ctx?.size ? ctx.size : 'medium',
+        fontSize: ctx?.fontSize ? ctx.fontSize : '17px',
+        fontColor: ctx?.fontColor ? ctx.fontColor : '#fff',
+        background: ctx?.background ? ctx.background : 'hsl(49deg 98% 60%)',
+        svg: ctx?.svg ? ctx.svg : <PlayerDefaultSvg />,
+        text: ctx?.text ? ctx.text : 'play',
+        subText: ctx?.subText ? ctx.subText : 'now!',
+    }
 
+    const calcSize = (size:string) => {
+        switch (size) {
+            case 'tiny':
+                return ButtonPlayerTiny;
+            case 'small':
+                return ButtonPlayerSmall;
+            case 'medium':
+                return ButtonPlayerMedium;
+            case 'large':
+                return ButtonPlayerLarge;
+            case 'huge':
+                return ButtonPlayerHuge;
+            default:
+                return ButtonPlayerMedium;
+        }
     }
 
     return(
-        <ButtonPlayerWrapper>
-            <PlayerDefaultSvg/>
-            <ButtonPlayerSubText>now!</ButtonPlayerSubText>
-            <ButtonPlayerText>play</ButtonPlayerText>
+        <ButtonPlayerWrapper
+            param={calcSize(ctxValue.size)}
+            fontSize={ctxValue.fontSize}
+            fontColor={ctxValue.fontColor}
+            background={ctxValue.background}
+        >
+            { ctxValue.svg }
+            <ButtonPlayerSubText>{ctxValue.subText}</ButtonPlayerSubText>
+            <ButtonPlayerText>{ctxValue.text}</ButtonPlayerText>
         </ButtonPlayerWrapper>
     )
 }
