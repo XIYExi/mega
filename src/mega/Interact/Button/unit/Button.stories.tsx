@@ -8,7 +8,7 @@ import {ButtonAnimationScaleType, ButtonBaseType, ButtonProSizeType} from "../Bu
 const TestDiv = styled.div`
   align-items: center;
   display: flex;
-  background: linear-gradient(70deg, #fff700 50%, #f0e900 50%);
+  //background: linear-gradient(70deg, #fff700 50%, #f0e900 50%);
   box-sizing: border-box;
   justify-content: center;
 `
@@ -25,6 +25,35 @@ const Template: ComponentStory<typeof ButtonPro> = (args) =>(
         <ButtonPro {...args}/>
     </TestDiv>
 )
+
+
+/**
+ * =========================================
+ *
+ * Player
+ *
+ * =========================================
+ */
+export const Player_Btn = Template.bind({});
+const jsonPlayer = {
+    id: 'player',
+    className: '_player_Class',
+    style: {
+        margin: 0,
+        padding: 0
+    },
+    color: '#fff',
+    background: '',
+    type: 'Player' as ButtonBaseType,
+    text: 'player',
+    animationScale:'moderate' as ButtonAnimationScaleType,
+    svg: null,
+    size: 'medium' as ButtonProSizeType,
+    subText: 'now!',
+}
+Player_Btn.args = {
+    auto: jsonPlayer
+}
 
 
 /**
@@ -190,3 +219,5 @@ Text_btn.args = {
     background: '#c84747',
     color: '#111',
 }
+
+
