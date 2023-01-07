@@ -118,7 +118,10 @@ const ButtonPlayer:FC<ButtonChildProps> = (props) => {
         size: ctx?.size ? ctx.size : 'medium',
         fontSize: ctx?.fontSize ? ctx.fontSize : '17px',
         fontColor: ctx?.fontColor ? ctx.fontColor : '#fff',
-        background: ctx?.background ? ctx.background : 'hsl(49deg 98% 60%)',
+        background: (
+            ctx?.background
+            && ctx?.background !== 'transparent'
+            && ctx?.background !== '') ? ctx.background : 'hsl(49deg 98% 60%)',
         svg: ctx?.svg ? ctx.svg : <PlayerDefaultSvg />,
         text: ctx?.text ? ctx.text : 'play',
         subText: ctx?.subText ? ctx.subText : 'now!',
